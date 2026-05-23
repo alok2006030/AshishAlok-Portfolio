@@ -1,0 +1,301 @@
+.code-playground {
+  padding: 1rem 0 2.5rem;
+  scroll-margin-top: 100px;
+}
+
+.playground-shell {
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--boxShadow), var(--hacker-glow);
+}
+
+.playground-shell.light {
+  background: rgba(18, 18, 18, 0.98);
+}
+
+.playground-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.playground-shell.light .playground-toolbar {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.playground-tabs {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.pg-tab {
+  padding: 0.45rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--gray);
+  font-family: Consolas, monospace;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pg-tab:hover {
+  color: var(--neon-cyan);
+  border-color: var(--glass-border);
+}
+
+.pg-tab.active {
+  color: var(--neon-green);
+  background: rgba(0, 255, 157, 0.1);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 12px rgba(0, 255, 157, 0.2);
+}
+
+.playground-shell.light .pg-tab.active {
+  background: rgba(245, 195, 44, 0.15);
+  border-color: #f5c32c;
+  color: #f5c32c;
+  box-shadow: 0 0 12px rgba(245, 195, 44, 0.35);
+}
+
+.playground-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pg-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-family: Consolas, monospace;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.pg-btn.run {
+  background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+  color: #050810;
+  border-color: var(--neon-green);
+  box-shadow: 0 0 16px rgba(0, 255, 157, 0.4);
+}
+
+.playground-shell.light .pg-btn.run {
+  color: #1a1408;
+  box-shadow: 0 0 16px rgba(245, 195, 44, 0.45);
+}
+
+.pg-btn.run:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(0, 255, 157, 0.55);
+}
+
+.pg-btn.reset {
+  background: transparent;
+  color: var(--neon-cyan);
+  border-color: var(--glass-border);
+}
+
+.pg-btn.reset:hover {
+  border-color: var(--neon-cyan);
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.playground-examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.playground-shell.light .playground-examples {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.examples-label {
+  font-family: Consolas, monospace;
+  font-size: 0.75rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pg-example-chip {
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 255, 157, 0.06);
+  color: var(--neon-green);
+  font-family: Consolas, monospace;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pg-example-chip:hover {
+  background: var(--neon-green);
+  color: #050810;
+  border-color: var(--neon-green);
+}
+
+.playground-shell.light .pg-example-chip {
+  background: rgba(245, 195, 44, 0.15);
+  color: #8a6d00;
+}
+
+.playground-shell.light .pg-example-chip:hover {
+  background: #f5c32c;
+  color: #1a1408;
+}
+
+.playground-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(320px, 50vh, 420px);
+}
+
+.playground-editor-pane {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--glass-border);
+  min-width: 0;
+}
+
+.code-textarea {
+  flex: 1;
+  width: 100%;
+  min-height: clamp(260px, 45vh, 380px);
+  padding: 1rem;
+  border: none;
+  resize: vertical;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(0.75rem, 1.8vw, 0.88rem);
+  line-height: 1.55;
+  color: var(--neon-green);
+  background: rgba(0, 0, 0, 0.5);
+  outline: none;
+  tab-size: 2;
+}
+
+.playground-shell.light .code-textarea {
+  color: #f5c32c;
+  background: rgba(5, 5, 5, 0.95);
+  caret-color: #ffd700;
+}
+
+.code-textarea::selection {
+  background: rgba(0, 255, 157, 0.25);
+}
+
+.playground-shell.light .code-textarea::selection {
+  background: rgba(245, 195, 44, 0.4);
+}
+
+.playground-status {
+  padding: 0.4rem 1rem;
+  font-family: Consolas, monospace;
+  font-size: 0.72rem;
+  color: var(--neon-cyan);
+  border-top: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.playground-shell.light .playground-status {
+  color: #b8860b;
+  background: rgba(245, 195, 44, 0.1);
+}
+
+.playground-preview-pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #fff;
+}
+
+.preview-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: Consolas, monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #333;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  box-shadow: 0 0 8px var(--neon-green);
+}
+
+.playground-shell.light .preview-dot {
+  background: #f5c32c;
+  box-shadow: 0 0 8px #f5c32c;
+}
+
+.preview-iframe {
+  flex: 1;
+  width: 100%;
+  min-height: clamp(240px, 42vh, 360px);
+  border: none;
+  background: #fff;
+}
+
+@media screen and (max-width: 900px) {
+  .playground-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .playground-editor-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .code-textarea {
+    min-height: 220px;
+  }
+
+  .preview-iframe {
+    min-height: 260px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .playground-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .playground-actions {
+    width: 100%;
+  }
+
+  .pg-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .playground-examples {
+    justify-content: center;
+  }
+}

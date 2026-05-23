@@ -1,75 +1,173 @@
 .services {
-  padding: 0 3rem 0 3rem;
-  display: flex;
-  height: 30rem;
-  margin-bottom: 8rem;
-  margin-top: 2rem;
-  margin-bottom: 13rem;
-  /* scroll view */
-  padding-top: 3rem;
+    padding: 0 1rem;
+    display: flex;
+    gap: clamp(2rem, 5vw, 4rem);
+    height: auto;
+    min-height: 400px;
+    margin-bottom: 6rem;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    align-items: flex-start;
 }
-/* left side */
+
 .awesome {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  /* gap: 20px; */
+    flex: 0 0 min(100%, 340px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
 }
 
-.awesome > :nth-child(1) {
-  color: var(--black);
-  font-size: 2.5rem;
-  font-weight: bold;
+.services-tag {
+    font-family: Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--neon-cyan);
+    letter-spacing: 0.06em;
+    margin: 0;
 }
+
 .awesome > :nth-child(2) {
-  color: var(--orange);
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-.awesome > :nth-child(3) {
-  color: var(--gray);
-  font-size: 14px;
-  margin-top: 1rem;
-}
-.s-button {
-  width: 8rem;
-  height: 2rem;
-  margin-top: 1rem;
-}
-/* right sided */
-.cards {
-  position: relative;
-}
-.cards > * {
-  position: absolute;
+    color: var(--black);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-/* blur */
-.s-blur2 {
-  left: 14rem;
-  top: 8rem;
+.awesome > :nth-child(3) {
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.services-desc {
+    color: var(--gray);
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    margin-top: 0.5rem;
+    line-height: 1.65;
+}
+
+.s-button {
+    width: clamp(130px, 15vw, 160px);
+    height: clamp(40px, 5vw, 45px);
+    margin-top: 1rem;
+    font-size: clamp(13px, 1.8vw, 14px);
+}
+
+.services-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.services-badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    font-family: Consolas, monospace;
+    font-size: 0.72rem;
+    color: var(--neon-green);
+    background: rgba(0, 255, 157, 0.06);
+}
+
+body.light-mode .services-badges span {
+    color: #f5c32c;
+    background: rgba(245, 195, 44, 0.1);
+    border-color: rgba(245, 195, 44, 0.45);
+}
+
+body.light-mode .awesome > :nth-child(2) {
+    color: #f5f0e0;
+}
+
+.cards {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1rem, 2.5vw, 1.35rem);
+    position: relative;
+    z-index: 1;
+}
+
+.service-card-wrap {
+    width: 100%;
 }
 
 .s-blur1 {
-  top: 13rem;
-  left: -18rem;
+    top: 10rem;
+    left: -12rem;
+}
+
+.s-blur2 {
+    right: -2rem;
+    top: 4rem;
+    left: auto;
+}
+
+@media screen and (max-width: 1100px) {
+    .services {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0.5rem;
+    }
+
+    .awesome {
+        flex: none;
+        width: 100%;
+        max-width: 560px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .services-badges {
+        justify-content: center;
+    }
+
+    .cards {
+        width: 100%;
+        max-width: 720px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .s-blur1,
+    .s-blur2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .services {
+        margin-bottom: 4rem;
+        gap: 2.5rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  .services {
-    margin-top: -8rem;
-    flex-direction: column;
-    gap: 5rem;
-    height: 65rem;
-    padding: 0.5rem;
-  }
-
-  .cards {
-    display: flex;
-    flex-direction: column;
-    gap: 17rem;
-  }
-  .cards > * {
-    position: static;
-  }
+    .s-button {
+        width: 140px;
+        height: 40px;
+    }
 }

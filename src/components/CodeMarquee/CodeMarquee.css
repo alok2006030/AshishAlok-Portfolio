@@ -1,0 +1,50 @@
+.code-marquee {
+  width: 100vw;
+  max-width: 100%;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.65rem 0;
+}
+
+.code-marquee.light {
+  background: rgba(12, 12, 12, 0.95);
+  border-color: rgba(245, 195, 44, 0.35);
+}
+
+.code-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 45s linear infinite;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+  color: var(--neon-green);
+  white-space: nowrap;
+  gap: 0;
+}
+
+.code-marquee.light .code-marquee-track {
+  color: #f5c32c;
+}
+
+.code-marquee-track span {
+  padding-right: 3rem;
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .code-marquee-track {
+    animation: none;
+  }
+}

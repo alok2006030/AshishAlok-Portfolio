@@ -1,0 +1,75 @@
+.hacker-stats-section {
+  padding: 1rem 0 2rem;
+  scroll-margin-top: 100px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.stat-card {
+  padding: clamp(1rem, 3vw, 1.5rem);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--neon-green);
+  box-shadow: var(--hacker-glow);
+}
+
+.stat-index {
+  font-family: Consolas, monospace;
+  font-size: 0.7rem;
+  color: var(--neon-cyan);
+  letter-spacing: 0.1em;
+}
+
+.stat-value {
+  display: block;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 800;
+  margin: 0.35rem 0;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Consolas, monospace;
+}
+
+.stat-label {
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  color: var(--gray);
+}
+
+.stat-bar {
+  height: 3px;
+  background: rgba(128, 128, 128, 0.2);
+  border-radius: 4px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+  border-radius: 4px;
+  transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+@media screen and (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

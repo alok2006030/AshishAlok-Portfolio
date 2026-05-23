@@ -5,7 +5,6 @@ import Fiverr from "../../img/fiverr.png";
 import SlashMark from "../../img/SlashMark.png";
 import Shopify from "../../img/Shopify.png";
 import Facebook from "../../img/Facebook.png";
-import Mail from "../../img/Mail.png";
 import { themeContext } from "../../Context";
 import { motion } from "framer-motion";
 import {Link} from 'react-scroll'
@@ -21,7 +20,7 @@ const Works = () => {
       <div className="w-left">
         <div className="awesome">
           {/* dark Mode */}
-          <span style={{ color: darkMode ? "white" : "" }}>
+          <span style={{ color: darkMode ? "white" : "#f5f0e0" }}>
             Works for All these
           </span>
           <span>Brands & Clients</span>

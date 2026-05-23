@@ -1,102 +1,126 @@
 import React, { useContext } from "react";
 import "./Intro.css";
+
 import boy from "../../img/boy.png";
 import glassesimoji from "../../img/glassesimoji.png";
 import thumbup from "../../img/thumbup.png";
 import crown from "../../img/crown.png";
+
 import FloatinDiv from "../FloatingDiv/FloatingDiv";
 import { themeContext } from "../../Context";
+
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-
 
 import Github from "@iconscout/react-unicons/icons/uil-github";
 import LinkedIn from "@iconscout/react-unicons/icons/uil-linkedin";
 import Mail from "@iconscout/react-unicons/icons/uil-envelope";
 
 const Intro = () => {
-  // Transition
   const transition = { duration: 2, type: "spring" };
-
-  // context
   const theme = useContext(themeContext);
   const darkMode = theme.state.darkMode;
+  const accentColor = darkMode ? "#00ff9d" : "#f5c32c";
 
   return (
-    <div className="Intro" id="Intro">
-      {/* left name side */}
-      <div className="i-left">
+    <div className="Intro">
+      <div className="i-left glass-panel intro-panel">
+        <p className="intro-terminal">
+          <span className="terminal-prompt">&gt;</span> init portfolio.exe
+        </p>
+
         <div className="i-name">
-          {/* yahan change hy darkmode ka */}
-          <span style={{ color: darkMode ? "white" : "" }}>Hy! I Am</span>
-          <span>Ashish Alok</span>
-          <span>
-            Completed graduation B.Tech in Computer Science and Engineering from the National Institute of Technology Patna, India.
+          <span className="i-greeting">Hy! I Am</span>
+          <span className="i-title glitch-text">Ashish Alok</span>
+          <span className={`i-bio ${darkMode ? "" : "light"}`}>
+            B.Tech CSE — National Institute of Technology Patna, India.
             <br />
-            Web developer with expertise in frontend and backend development.
-            With a high level of experience in web designing and development,
-            producing quality work.
+            Full-stack developer · frontend · backend · clean code architect.
           </span>
         </div>
-        <Link to="contact" smooth={true} spy={true}>
-          <button className="button i-button">Hire me</button>
+
+        <Link
+          to="contact"
+          smooth={true}
+          spy={true}
+          offset={-70}
+          duration={500}
+        >
+          <button type="button" className="button i-button">
+            Hire me
+          </button>
         </Link>
-        {/* social icons */}
+
         <div className="i-icons">
-          <a href="https://github.com/alok2006030" target="_blank" rel="noopener noreferrer">
-            <Github color="orange" size={"5.0rem"} />
+          <a
+            href="https://github.com/alok2006030"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-link"
+            aria-label="GitHub"
+          >
+            <Github color={accentColor} size="3rem" />
           </a>
-          <a href="https://www.linkedin.com/in/the-ashishalok/" target="_blank" rel="noopener noreferrer">
-            <LinkedIn color="orange" size={"5.0rem"} />
+          <a
+            href="https://www.linkedin.com/in/the-ashishalok/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-link"
+            aria-label="LinkedIn"
+          >
+            <LinkedIn color={accentColor} size="3rem" />
           </a>
-          <a href="mailto:ashishalok01@gmail.com" target="_blank" rel="noopener noreferrer">
-            <Mail color="orange" size={"5.0rem"} />
+          <a
+            href="mailto:ashishalok01@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="icon-link"
+            aria-label="Email"
+          >
+            <Mail color={accentColor} size="3rem" />
           </a>
         </div>
       </div>
-      {/* right image side */}
+
       <div className="i-right">
-        <img src={boy} alt="" />
-        {/* animation */}
-        <motion.img
-          initial={{ left: "-36%" }}
-          whileInView={{ left: "-24%" }}
-          transition={transition}
-          src={glassesimoji}
-          alt=""
-        />
+        <div className="boy-avatar-wrap">
+          <div className="boy-frame-ring boy-frame-ring-2" aria-hidden="true" />
+          <div className="boy-frame-ring" aria-hidden="true" />
+
+          <div className="boy-frame">
+            <img src={boy} alt="Ashish Alok" className="boy-img" />
+          </div>
+
+          <motion.img
+            initial={{ left: "-36%" }}
+            whileInView={{ left: "-18%" }}
+            transition={transition}
+            src={glassesimoji}
+            alt=""
+            className="glasses-img"
+          />
+        </div>
 
         <motion.div
           initial={{ top: "-4%", left: "74%" }}
           whileInView={{ left: "68%" }}
           transition={transition}
-          className="floating-div"
+          className="floating-div-wrap"
         >
-          <FloatinDiv img={crown} text1="Web" text2="Developer" />
+          <FloatinDiv img={crown} text1="Full Stack" text2="Developer" />
         </motion.div>
 
-        {/* animation */}
         <motion.div
           initial={{ left: "9rem", top: "18rem" }}
           whileInView={{ left: "0rem" }}
           transition={transition}
-          className="floating-div"
+          className="floating-div-wrap second-floating"
         >
-          {/* floatinDiv mein change hy dark mode ka */}
-          <FloatinDiv img={thumbup} text1="Best Design" text2="Award" />
+          <FloatinDiv img={thumbup} text1="Clean Code" text2="Advocate" />
         </motion.div>
 
-        <div className="blur" style={{ background: "rgb(238 210 255)" }}></div>
-        <div
-          className="blur"
-          style={{
-            background: "#C1F5FF",
-            top: "17rem",
-            width: "21rem",
-            height: "11rem",
-            left: "-9rem",
-          }}
-        ></div>
+        <div className="blur blur-neon-green" aria-hidden="true" />
+        <div className="blur blur-neon-cyan" aria-hidden="true" />
       </div>
     </div>
   );

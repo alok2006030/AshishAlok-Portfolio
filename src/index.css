@@ -1,19 +1,64 @@
-/* src/index.css */
-
 @font-face {
-    font-family: 'Gumela';
-    src: url('%PUBLIC_URL%/fonts/Gumela.woff2') format('woff2');
+    font-family: "Gumela";
+    src: url("%PUBLIC_URL%/fonts/Gumela.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
-  }
-  
-  * {
-    font-family: 'Gumela', sans-serif;
-    font-weight: normal;
-    font-size: 20px;
-  }
-  
-  body {
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    font-family: "Gumela", Consolas, "Courier New", monospace, sans-serif;
     margin: 0;
-  }
-  
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.dark-mode {
+    background-color: #050810;
+    color: #e8f4ff;
+}
+
+body.light-mode {
+    background-color: #0a0a0a;
+    color: #f5f0e0;
+}
+
+body.light-mode ::selection {
+    background: rgba(245, 195, 44, 0.45);
+    color: #0a0a0a;
+}
+
+body.dark-mode ::selection {
+    background: rgba(0, 255, 157, 0.35);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+}

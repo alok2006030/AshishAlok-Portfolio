@@ -1,0 +1,430 @@
+.travel-map-section {
+  padding: 2rem 0 3rem;
+  scroll-margin-top: 100px;
+  width: 100%;
+}
+
+.travel-map-header {
+  text-align: center;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.travel-map-icon {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  background: linear-gradient(135deg, #00ff9d, #00e5ff, #b14eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 157, 0.4));
+}
+
+.travel-map-section.light .travel-map-icon {
+  background: linear-gradient(135deg, #f5c32c, #ffd700, #ffcc00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(245, 195, 44, 0.6));
+}
+
+.travel-map-title {
+  background: linear-gradient(
+    90deg,
+    #00ff9d,
+    #00e5ff,
+    #b14eff,
+    #ff2d95
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(1.65rem, 4.5vw, 2.55rem);
+  margin: 0 0 0.5rem;
+}
+
+.travel-map-section.light .travel-map-title {
+  background: linear-gradient(90deg, #f5c32c, #ffd700, #ffcc00, #f5c32c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.travel-map-subtitle {
+  font-size: clamp(0.88rem, 2.2vw, 1.05rem);
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--gray);
+  padding: 0 0.75rem;
+}
+
+.travel-map-section.light .travel-map-subtitle {
+  color: #b8a88a;
+}
+
+.travel-map-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 320px);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  align-items: stretch;
+}
+
+/* Colorful map canvas */
+.travel-map-canvas {
+  position: relative;
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  min-height: clamp(240px, 45vw, 400px);
+  aspect-ratio: 2 / 1;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#0a0f1a, #0a0f1a) padding-box,
+    linear-gradient(
+      135deg,
+      #00ff9d,
+      #00e5ff,
+      #b14eff,
+      #ff2d95,
+      #f5c32c
+    )
+    border-box;
+  box-shadow:
+    0 8px 40px rgba(0, 255, 157, 0.15),
+    0 0 60px rgba(0, 229, 255, 0.08),
+    inset 0 0 80px rgba(177, 78, 255, 0.06);
+}
+
+.travel-map-section.light .travel-map-canvas {
+  background:
+    linear-gradient(#0d0d0d, #141414) padding-box,
+    linear-gradient(135deg, #f5c32c, #ffd700, #ffcc00, #f5c32c, #e6b800)
+    border-box;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(245, 195, 44, 0.2);
+}
+
+.map-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.map-glow-1 {
+  width: 40%;
+  height: 50%;
+  top: -10%;
+  left: 10%;
+  background: rgba(0, 255, 157, 0.25);
+}
+
+.map-glow-2 {
+  width: 35%;
+  height: 45%;
+  bottom: -5%;
+  right: 15%;
+  background: rgba(0, 229, 255, 0.2);
+}
+
+.map-glow-3 {
+  width: 30%;
+  height: 40%;
+  top: 30%;
+  right: 5%;
+  background: rgba(177, 78, 255, 0.2);
+}
+
+.travel-map-section.light .map-glow-1 {
+  background: rgba(245, 195, 44, 0.3);
+}
+
+.travel-map-section.light .map-glow-2 {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+.travel-map-section.light .map-glow-3 {
+  background: rgba(245, 195, 44, 0.15);
+}
+
+.world-map-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+}
+
+.travel-map-section.dark .world-map-img {
+  filter: invert(0.9) hue-rotate(180deg) brightness(0.9) saturate(1.2);
+}
+
+.travel-map-section.light .world-map-img {
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.85) sepia(0.2) saturate(1.4);
+  opacity: 0.85;
+}
+
+/* Colorful pins */
+.map-pin {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-50%, -100%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--pin-color, var(--neon-green));
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  padding: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 0 8px var(--pin-color));
+}
+
+.pin-pulse {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--pin-color);
+  opacity: 0.5;
+  animation: pin-pulse 2s ease-out infinite;
+}
+
+.map-pin.active .pin-pulse {
+  animation: pin-pulse-active 1.2s ease-out infinite;
+}
+
+@keyframes pin-pulse {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(-50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pin-pulse-active {
+  0% {
+    transform: translateX(-50%) scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-50%) scale(3);
+    opacity: 0;
+  }
+}
+
+.map-pin:hover,
+.map-pin.active {
+  transform: translate(-50%, -100%) scale(1.25);
+  filter: drop-shadow(0 0 14px var(--pin-color));
+  z-index: 3;
+}
+
+.map-pin.wishlist {
+  opacity: 0.85;
+}
+
+.map-pin.wishlist.active {
+  opacity: 1;
+}
+
+/* Detail panel */
+.travel-map-detail {
+  background: rgba(5, 12, 24, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 157, 0.2);
+  border-radius: var(--borderRadius);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.travel-map-section.light .travel-map-detail {
+  background: rgba(18, 18, 18, 0.95);
+  border-color: rgba(245, 195, 44, 0.45);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  color: #f5f0e0;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  font-family: Consolas, monospace;
+}
+
+.travel-map-detail h3 {
+  margin: 0;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  background: linear-gradient(90deg, #fff, #c5d4e3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.travel-map-section.light .travel-map-detail h3 {
+  background: linear-gradient(90deg, #fff8e1, #f5c32c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.detail-country {
+  margin: 0;
+  color: var(--gray);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+}
+
+.detail-year {
+  margin: 0.25rem 0;
+  font-weight: 700;
+  font-family: Consolas, monospace;
+}
+
+.detail-note {
+  margin: 0 0 1rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  line-height: 1.55;
+  color: var(--gray);
+}
+
+.destination-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  max-height: clamp(160px, 28vh, 220px);
+  -webkit-overflow-scrolling: touch;
+}
+
+.destination-list li {
+  margin-bottom: 0.35rem;
+}
+
+.destination-list button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  text-align: left;
+  color: inherit;
+  transition: var(--transition);
+  min-height: 44px;
+}
+
+.destination-list button:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: rgba(0, 255, 157, 0.25);
+}
+
+.destination-list button.selected {
+  background: rgba(0, 255, 157, 0.12);
+}
+
+.travel-map-section.light .destination-list button {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 195, 44, 0.2);
+  color: #e8e0d0;
+}
+
+.travel-map-section.light .destination-list button:hover {
+  background: rgba(245, 195, 44, 0.12);
+  border-color: rgba(245, 195, 44, 0.4);
+}
+
+.wishlist-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(177, 78, 255, 0.3), rgba(255, 45, 149, 0.2));
+  color: #e0b0ff;
+  border: 1px solid rgba(177, 78, 255, 0.4);
+}
+
+.travel-map-section.light .wishlist-badge {
+  color: #8b5cf6;
+  background: rgba(177, 78, 255, 0.15);
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .travel-map-layout {
+    grid-template-columns: 1fr minmax(220px, 280px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .travel-map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-map-canvas {
+    min-height: clamp(220px, 50vw, 340px);
+  }
+
+  .destination-list {
+    max-height: 200px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .travel-map-canvas {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+  }
+
+  .map-pin {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .travel-map-section {
+    padding: 1rem 0 2rem;
+  }
+
+  .travel-map-canvas {
+    min-height: 200px;
+  }
+
+  .travel-map-detail {
+    padding: 1rem;
+  }
+
+  .destination-list {
+    max-height: 180px;
+  }
+
+  .map-glow {
+    filter: blur(40px);
+  }
+}

@@ -1,20 +1,60 @@
 .floatingDiv {
-  justify-content: space-around;
-  background: white;
-  box-shadow: var(--boxShadow);
-  border-radius: 17px;
-  display: flex;
-  align-items: center;
-  padding: 0px 28px 0px 0px;
-  height: 4.5rem;
-}
-.floatingDiv > img {
-  transform: scale(0.4);
-}
-.floatingDiv > span {
-  font-family: sans-serif;
-  font-weight: bold;
-  /* yahan ye color add kia hy bad mein dark mode k waqt */
-  color: rgb(80, 29, 29);
+    justify-content: space-around;
+    background: rgba(5, 12, 24, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 255, 157, 0.12);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem 0.5rem 0;
+    height: clamp(50px, 8vw, 70px);
+    gap: 0.5rem;
 }
 
+body.light-mode .floatingDiv {
+    background: rgba(18, 18, 18, 0.95);
+    border-color: rgba(245, 195, 44, 0.5);
+}
+
+.floatingDiv > img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.floatingDiv > span {
+    font-family: Consolas, monospace;
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(0.7rem, 1.5vw, 0.88rem);
+    line-height: 1.2;
+}
+
+@media screen and (max-width: 768px) {
+    .floatingDiv {
+        height: 46px;
+        padding: 0.35rem 1rem 0.35rem 0;
+    }
+
+    .floatingDiv > img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .floatingDiv {
+        height: 42px;
+        padding: 0.25rem 0.85rem 0.25rem 0;
+    }
+
+    .floatingDiv > img {
+        width: 24px;
+        height: 24px;
+    }
+}

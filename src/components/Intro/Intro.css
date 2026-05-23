@@ -1,134 +1,345 @@
 .Intro {
   display: flex;
-  height: 77vh;
-  margin-top: 6rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0 3rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  min-height: min(85vh, 720px);
 }
 
-/* left side styling */
-.i-left {
-  display: flex;
-  position: relative;
+/* LEFT — glass panel */
+.i-left.intro-panel {
   flex: 1;
+  display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.75rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  max-width: 560px;
 }
+
+.intro-terminal {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+  color: var(--neon-cyan);
+  letter-spacing: 0.05em;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.terminal-prompt {
+  color: var(--neon-green);
+  margin-right: 0.35rem;
+}
+
 .i-name {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
-.i-name > :nth-child(1) {
-  color: var(--black);
-  font-weight: bold;
-  font-size: 3rem;
-}
-.i-name > :nth-child(2) {
-  color: var(--orange);
-  font-weight: bold;
-  font-size: 3rem;
-}
-.i-name > :nth-child(3) {
-  font-weight: 100;
-  font-size: 1rem;
+
+.i-greeting {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
   color: var(--gray);
-  margin-top: 10px;
+  letter-spacing: 0.02em;
 }
+
+.i-title {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: bold;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.15;
+  text-shadow: 0 0 40px rgba(0, 255, 157, 0.25);
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.i-bio {
+  margin-top: 0.5rem;
+  color: var(--gray);
+  line-height: 1.75;
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  max-width: 32rem;
+}
+
+.i-bio.light {
+  color: #b8a88a;
+}
+
+.App.hacker-light .i-greeting {
+  color: #b8a88a;
+}
+
+.App.hacker-light .boy-frame {
+  border-color: rgba(245, 195, 44, 0.75);
+  box-shadow:
+    0 0 0 4px rgba(245, 195, 44, 0.2),
+    0 0 50px rgba(245, 195, 44, 0.45),
+    inset 0 0 40px rgba(245, 195, 44, 0.1);
+  background: linear-gradient(145deg, rgba(245, 195, 44, 0.15), rgba(0, 0, 0, 0.4));
+}
+
+.App.hacker-light .blur-neon-green {
+  background: rgba(245, 195, 44, 0.4);
+}
+
+.App.hacker-light .blur-neon-cyan {
+  background: rgba(255, 215, 0, 0.3);
+}
+
+.App.hacker-light .icon-link {
+  background: rgba(245, 195, 44, 0.08);
+  border-color: transparent;
+}
+
+.App.hacker-light .icon-link:hover {
+  border-color: #f5c32c;
+  background: rgba(245, 195, 44, 0.15);
+}
+
 .i-button {
-  width: 6rem;
-  height: 2rem;
+  width: auto;
+  min-width: 9rem;
+  align-self: flex-start;
 }
+
 .i-icons {
-  margin-top: 3rem;
   display: flex;
-  gap: 0rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
-.i-icons > * {
-  transform: scale(0.5);
+
+.icon-link {
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  background: rgba(0, 255, 157, 0.05);
 }
-.i-icons > *:hover {
-  cursor: pointer;
+
+.icon-link:hover {
+  transform: translateY(-4px) scale(1.08);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.35);
+  background: rgba(0, 255, 157, 0.1);
 }
-/* right side styling */
+
+/* RIGHT — oval avatar */
 .i-right {
   flex: 1;
   position: relative;
-}
-.i-right > * {
-  position: absolute;
-  z-index: 1;
-}
-.i-right > :nth-child(1) {
-  position: absolute; /* Ensure the element can be positioned */
-  transform: scale(1.5); /* Scale the element */
-  top: -9%; /* Adjust the top position */
-  right: 35%; /* Adjust the right position */
-  border-radius: 50%; /* Make the element circular */
-  overflow: hidden; /* Hide any overflowing content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: clamp(320px, 45vw, 480px);
 }
 
-.i-right > :nth-child(2) {
-  top: -4.6rem;
-  transform: scale(0.57);
-  left: -3rem;
+.boy-avatar-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.i-right > :nth-child(3) {
-  transform: scale(0.77);
-  left: 28%;
- 
-}
-.i-right > :nth-child(4) {
-  transform: scale(0.77);
-  top: -19%;
-  left: -24%;
+/* Oval frame — larger than before */
+.boy-frame {
+  width: clamp(220px, 28vw, 300px);
+  height: clamp(270px, 34vw, 370px);
   border-radius: 50%;
-  padding: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  border: 2px solid rgba(0, 255, 157, 0.55);
+  box-shadow:
+    0 0 0 4px rgba(0, 255, 157, 0.12),
+    0 0 50px rgba(0, 255, 157, 0.25),
+    0 0 80px rgba(0, 229, 255, 0.15),
+    inset 0 0 40px rgba(0, 255, 157, 0.08);
+  background: linear-gradient(145deg, rgba(0, 255, 157, 0.12), rgba(177, 78, 255, 0.1));
+  backdrop-filter: blur(8px);
 }
 
-/* blur */
+.boy-img {
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  object-position: center 12%;
+  margin-left: -4%;
+  margin-top: -2%;
+  display: block;
+}
+
+.boy-frame-ring {
+  position: absolute;
+  width: clamp(240px, 30vw, 320px);
+  height: clamp(290px, 36vw, 395px);
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 229, 255, 0.4);
+  animation: ring-pulse 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.boy-frame-ring-2 {
+  width: clamp(255px, 32vw, 340px);
+  height: clamp(305px, 38vw, 415px);
+  border-color: rgba(177, 78, 255, 0.35);
+  animation-delay: -2s;
+  animation-direction: reverse;
+}
+
+@keyframes ring-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+.glasses-img {
+  position: absolute;
+  width: clamp(3.5rem, 8vw, 5rem);
+  top: 8%;
+  left: -12%;
+  z-index: 4;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.5));
+}
+
+.floating-div-wrap {
+  position: absolute;
+  z-index: 5;
+}
+
+.floating-div-wrap.second-floating {
+  top: clamp(14rem, 38vw, 18rem);
+  left: clamp(-1rem, -2vw, 0);
+}
+
 .blur {
   position: absolute;
-  width: 22rem;
-  height: 14rem;
   border-radius: 50%;
-  background: #edd0ff;
-  filter: blur(212px);
-  z-index: -9;
-  top: -18%;
-  left: 56%;
-  filter: blur(72px);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blur-neon-green {
+  width: clamp(14rem, 22vw, 20rem);
+  height: clamp(10rem, 16vw, 14rem);
+  background: rgba(0, 255, 157, 0.35);
+  top: 10%;
+  right: 5%;
+}
+
+.blur-neon-cyan {
+  width: clamp(12rem, 18vw, 18rem);
+  height: clamp(9rem, 14vw, 12rem);
+  background: rgba(0, 229, 255, 0.28);
+  bottom: 5%;
+  left: -5%;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .Intro {
+    min-height: auto;
+    padding: 1.5rem 0 2.5rem;
+  }
+
+  .boy-frame {
+    width: clamp(200px, 32vw, 260px);
+    height: clamp(245px, 38vw, 320px);
+  }
+}
+
+/* Mobile — stack, keep floating badges */
+@media screen and (max-width: 768px) {
+  .Intro {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+    padding: 1rem 0 2rem;
+  }
+
+  .i-left.intro-panel {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .i-button {
+    align-self: center;
+  }
+
+  .i-icons {
+    justify-content: center;
+  }
+
+  .i-right {
+    min-height: clamp(280px, 70vw, 380px);
+    width: 100%;
+  }
+
+  .boy-frame {
+    width: clamp(200px, 52vw, 260px);
+    height: clamp(248px, 64vw, 320px);
+  }
+
+  .boy-frame-ring {
+    width: clamp(215px, 55vw, 275px);
+    height: clamp(262px, 67vw, 335px);
+  }
+
+  .boy-frame-ring-2 {
+    width: clamp(228px, 58vw, 290px);
+    height: clamp(278px, 70vw, 350px);
+  }
+
+  .floating-div-wrap {
+    transform: scale(0.82);
+  }
+
+  .floating-div-wrap.second-floating {
+    top: clamp(12rem, 52vw, 16rem);
+    left: -0.5rem;
+  }
+
+  .glasses-img {
+    left: -8%;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .Intro {
-    flex-direction: column;
-    height: 72rem; /* Adjust height as needed for phone view */
-    padding: 0.5rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
   }
 
-  .i-icons{
-    margin-top: 0.5rem;
+  .i-left.intro-panel {
+    padding: 1rem;
+    gap: 1.25rem;
   }
 
-  .i-right {
-    transform: scale(0.9);
-    left: -3rem;
-  }
-  .i-right > :nth-child(3) {
-    left: 6.5rem;
-    top: -3.2rem;
-  }
-  .i-right > :nth-child(1) {
-    left: 5.0rem;
+  .boy-frame {
+    width: min(240px, 68vw);
+    height: min(295px, 84vw);
   }
 
-  .i-right .blur {
-    display: none;
+  .floating-div-wrap {
+    transform: scale(0.72);
   }
-  .floating-div:nth-of-type(1) {
-    top: -8rem !important;
-    
+
+  .blur {
+    filter: blur(56px);
+    opacity: 0.7;
   }
-  
 }
