@@ -37,7 +37,6 @@
     border: 2px solid rgba(252, 166, 31, 0.3);
     border-radius: 12px;
     font-size: 16px;
-    font-family: inherit;
     transition: var(--transition);
     
     /* Glass effect */

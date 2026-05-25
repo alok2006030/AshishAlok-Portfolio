@@ -25,7 +25,6 @@ body.light-mode .floatingDiv {
 }
 
 .floatingDiv > span {
-    font-family: Consolas, monospace;
     font-weight: bold;
     background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
     -webkit-background-clip: text;

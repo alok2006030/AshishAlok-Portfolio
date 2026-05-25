@@ -18,7 +18,6 @@
 }
 
 .intro-terminal {
-  font-family: Consolas, "Courier New", monospace;
   font-size: clamp(0.75rem, 1.8vw, 0.9rem);
   color: var(--neon-cyan);
   letter-spacing: 0.05em;

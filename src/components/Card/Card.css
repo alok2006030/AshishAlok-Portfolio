@@ -41,7 +41,6 @@ body.light-mode .card:hover {
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
-    font-family: Consolas, monospace;
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;

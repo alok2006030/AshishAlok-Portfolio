@@ -18,7 +18,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, sans-serif;
   background: linear-gradient(135deg, #050810, #0a1628);
   color: #e8f4ff;
 }
@@ -90,7 +89,7 @@ const EXAMPLES = {
 </article>`,
     css: `body {
   margin: 0; min-height: 100vh; display: grid; place-items: center;
-  background: #0a0f1a; font-family: sans-serif;
+  background: #0a0f1a;
 }
 .profile {
   padding: 1.5rem 2rem;

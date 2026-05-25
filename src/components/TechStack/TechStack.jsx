@@ -19,7 +19,7 @@ const TechStack = () => {
 
   return (
     <section className="tech-stack-section" id="tech-stack">
-      <p className="section-tag">// tech_stack.load()</p>
+      <p className="section-tag">{"// tech_stack.load()"}</p>
       <h2 className="section-heading">Arsenal & Skills</h2>
       <p className={`section-desc ${darkMode ? "" : "light"}`}>
         Tools I use to build secure, scalable web applications

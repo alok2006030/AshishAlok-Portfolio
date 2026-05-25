@@ -52,7 +52,6 @@ body.light-mode .mobile-menu-list li a {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Consolas, monospace;
     letter-spacing: 0.05em;
 }
 
@@ -90,7 +89,6 @@ body.light-mode .mobile-menu-list li a {
     position: relative;
     padding: 0.25rem 0;
     font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-    font-family: Consolas, monospace;
     letter-spacing: 0.04em;
 }
 
@@ -206,7 +204,6 @@ body.light-mode .mobile-menu-list li a {
     text-decoration: none;
     transition: var(--transition);
     padding: 0.5rem 1rem;
-    font-family: Consolas, monospace;
 }
 
 .mobile-menu-list li a:hover {

@@ -23,7 +23,6 @@
 }
 
 .stat-index {
-  font-family: Consolas, monospace;
   font-size: 0.7rem;
   color: var(--neon-cyan);
   letter-spacing: 0.1em;
@@ -38,7 +37,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Consolas, monospace;
 }
 
 .stat-label {

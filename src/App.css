@@ -26,7 +26,7 @@
     --smboxShadow: 0 4px 24px rgba(0, 255, 157, 0.15);
     --transition: all 0.3s ease-in-out;
     --borderRadius: 14px;
-    --font-primary: 'Gumela', 'Consolas', 'Courier New', monospace, sans-serif;
+    --font-primary: 'Gumela', sans-serif;
     --gradient-primary: linear-gradient(135deg, #00ff9d 0%, #00e5ff 50%, #b14eff 100%);
     --gradient-dark: linear-gradient(160deg, #050810 0%, #0a1628 50%, #0d1f35 100%);
     --gradient-light: linear-gradient(160deg, #e8f4fc 0%, #d4e8f8 50%, #eef6ff 100%);
@@ -159,7 +159,6 @@ html {
 
 /* Section titles — hacker style */
 .section-tag {
-    font-family: Consolas, monospace;
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -300,7 +299,6 @@ html {
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: var(--neon-green);
-    font-family: Consolas, monospace;
     animation: pulse 1.5s ease-in-out infinite;
 }
 

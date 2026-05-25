@@ -35,7 +35,7 @@
 .circle::before {
     border-radius: 50%;
     content: '';
-    background-image: linear-gradient(to bottom, #87e6fb 0%, #ffc05c 100%);
+    background-image: linear-gradient(to bottom, #257b8e 0%, #484236 100%);
     top: -8px;
     left: -8px;
     bottom: -8px;

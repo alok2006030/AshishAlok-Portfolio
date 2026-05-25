@@ -9,17 +9,17 @@ const Experience = () => {
 
   const achievements = [
     {
-      number: "1.5+",
+      number: "4.5+",
       label: "years",
       sublabel: "Experience"
     },
     {
-      number: "6+",
+      number: "20+",
       label: "completed",
       sublabel: "Projects"
     },
     {
-      number: "2+",
+      number: "4+",
       label: "companies",
       sublabel: "Work"
     }

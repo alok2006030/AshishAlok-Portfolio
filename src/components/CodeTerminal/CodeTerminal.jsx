@@ -100,7 +100,7 @@ const CodeTerminal = () => {
 
   return (
     <section className="code-terminal-section" id="terminal" ref={sectionRef}>
-      <p className="section-tag">// live_terminal</p>
+      <p className="section-tag">{"// live_terminal"}</p>
       <h2 className="section-heading">Running Code</h2>
       <p className={`section-desc ${darkMode ? "" : "light"}`}>
         Real-time build log — the way I ship projects

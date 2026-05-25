@@ -40,7 +40,6 @@
   border-radius: 8px;
   background: transparent;
   color: var(--gray);
-  font-family: Consolas, monospace;
   font-size: clamp(0.8rem, 2vw, 0.9rem);
   font-weight: 600;
   cursor: pointer;
@@ -76,7 +75,6 @@
 .pg-btn {
   padding: 0.5rem 1.1rem;
   border-radius: 8px;
-  font-family: Consolas, monospace;
   font-size: clamp(0.8rem, 2vw, 0.9rem);
   font-weight: 700;
   cursor: pointer;
@@ -127,7 +125,6 @@
 }
 
 .examples-label {
-  font-family: Consolas, monospace;
   font-size: 0.75rem;
   color: var(--gray);
   text-transform: uppercase;
@@ -140,7 +137,6 @@
   border: 1px solid var(--glass-border);
   background: rgba(0, 255, 157, 0.06);
   color: var(--neon-green);
-  font-family: Consolas, monospace;
   font-size: 0.78rem;
   cursor: pointer;
   transition: var(--transition);
@@ -182,7 +178,6 @@
   padding: 1rem;
   border: none;
   resize: vertical;
-  font-family: Consolas, "Courier New", monospace;
   font-size: clamp(0.75rem, 1.8vw, 0.88rem);
   line-height: 1.55;
   color: var(--neon-green);
@@ -207,7 +202,6 @@
 
 .playground-status {
   padding: 0.4rem 1rem;
-  font-family: Consolas, monospace;
   font-size: 0.72rem;
   color: var(--neon-cyan);
   border-top: 1px solid var(--glass-border);
@@ -231,7 +225,6 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  font-family: Consolas, monospace;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;

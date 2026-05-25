@@ -53,7 +53,7 @@ const HackerStats = () => {
 
   return (
     <section className="hacker-stats-section" id="stats" ref={ref}>
-      <p className="section-tag">// system_metrics</p>
+      <p className="section-tag">{"// system_metrics"}</p>
       <h2 className="section-heading">Hacker Dashboard</h2>
       <p className={`section-desc ${darkMode ? "" : "light"}`}>
         Numbers behind the code — professional delivery at scale

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Gumela";
-    src: url("%PUBLIC_URL%/fonts/Gumela.woff2") format("woff2");
+    src: url("./fonts/Gumela Regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,7 +9,7 @@
 *,
 *::before,
 *::after {
-    font-family: "Gumela", Consolas, "Courier New", monospace, sans-serif;
+    font-family: "Gumela", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,6 +39,32 @@ body.dark-mode {
 body.light-mode {
     background-color: #0a0a0a;
     color: #f5f0e0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050810;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00ff9d, #00e5ff);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00e5ff, #b14eff);
+}
+
+body.light-mode ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #f5c32c, #ffd700);
 }
 
 body.light-mode ::selection {
